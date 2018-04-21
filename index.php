@@ -8,7 +8,7 @@
   	{
   	$_SESSION['count']++;
 		}
-	print_r($_SESSION);
+	//print_r($_SESSION);
   ini_set('error_reporting', E_ALL);
   $file = $_SERVER["SCRIPT_FILENAME"];
   //TESTE
