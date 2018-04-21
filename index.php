@@ -1,5 +1,9 @@
 <?php
 /** teste de documentação **/
+/** 8===================) **/
+/** 8===================) **/
+
+>>>>>>> master
 	session_start();
 	if (!isset($_SESSION['count']))
 		{
