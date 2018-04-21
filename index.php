@@ -1,14 +1,14 @@
 <?php
 	session_start();
-	if (!isset($_SESSION['count'])) 
+	if (!isset($_SESSION['count']))
 		{
   	$_SESSION['count'] = 0;
-  	} 
-  else 
+  	}
+  else
   	{
   	$_SESSION['count']++;
 		}
-	print_r($_SESSION);
+	//print_r($_SESSION);
   ini_set('error_reporting', E_ALL);
   $file = $_SERVER["SCRIPT_FILENAME"];
   //echo ("Arquivo: $file <br/>");
@@ -33,7 +33,7 @@
   ini_set("include_path", $path);
   //print_r($_POST);
   //Listar dados da empresa
-	try 
+	try
 		{
 	  //Instancia objeto PDO para conexão com banco de dados
 	  $db = new PDO('pgsql:dbname=caixa;
@@ -41,7 +41,7 @@
                    user=pw2018;
                    password=PW2018&');
     }
-  catch (PDOException $e) 
+  catch (PDOException $e)
   	{
     echo 'Connection failed: ' . $e->getMessage();
 		}
@@ -73,7 +73,7 @@
   				//Tratar a requisição POST
 	if (isset($_POST['id']))
 		{
-		switch($_POST['id']) 
+		switch($_POST['id'])
 			{
 			case 1:
 				{
@@ -119,15 +119,15 @@
           }
         }
     ?>
-		<?php  				
-  				
+		<?php
+
   				}
-  			else 
+  			else
   				{
   				include("login.php");
   				}
   			}
-  		else 
+  		else
   			{
   			include("login.php");
   			}
