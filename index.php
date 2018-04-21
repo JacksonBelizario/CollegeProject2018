@@ -12,6 +12,7 @@
   ini_set('error_reporting', E_ALL);
   $file = $_SERVER["SCRIPT_FILENAME"];
   //TESTE
+	//TESTE 2
   //echo ("Arquivo: $file <br/>");
   $diretorio = pathinfo($file);
   //echo ("diretorio: ");
