@@ -1,4 +1,5 @@
 <?php
+/** teste de documentação **/
 	session_start();
 	if (!isset($_SESSION['count']))
 		{
