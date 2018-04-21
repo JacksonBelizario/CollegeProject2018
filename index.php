@@ -11,12 +11,6 @@
 	//print_r($_SESSION);
   ini_set('error_reporting', E_ALL);
   $file = $_SERVER["SCRIPT_FILENAME"];
-  //TESTE
-<<<<<<< HEAD
-	//TESTE2 2
-=======
-	//TESTE 2
->>>>>>> teste
   //echo ("Arquivo: $file <br/>");
   $diretorio = pathinfo($file);
   //echo ("diretorio: ");
