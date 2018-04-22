@@ -104,21 +104,21 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
                     if (isset($_POST['subid']) && $_POST['subid'] == 2) {
                         //montagem do SQL de atualização
                         if (empty($_POST['codigo'])) {
-	                        $query_params = array(
-	                            ':nome'			=> $_POST['nome'],
-	                            ':endereco'		=> $_POST['endereco'],
-	                            ':cpf_cnpj'		=> $_POST['cpf_cnpj'],
-	                            ':tipo'			=> $_POST['tipo']
-	                        );
+                            $query_params = array(
+                                ':nome'			=> $_POST['nome'],
+                                ':endereco'		=> $_POST['endereco'],
+                                ':cpf_cnpj'		=> $_POST['cpf_cnpj'],
+                                ':tipo'			=> $_POST['tipo']
+                            );
                             $query = "INSERT INTO cadastro.cadastro_cliforn (nome, endereco, cpf_cnpj, tipo) VALUES (:nome, :endereco, :cpf_cnpj, :tipo)";
                         } else {
-	                        $query_params = array(
-	                            ':nome'			=> $_POST['nome'],
-	                            ':endereco'		=> $_POST['endereco'],
-	                            ':cpf_cnpj'		=> $_POST['cpf_cnpj'],
-	                            ':tipo'			=> $_POST['tipo'],
-	                            ':id'			=> $_POST['codigo']
-	                        );
+                            $query_params = array(
+                                ':nome'			=> $_POST['nome'],
+                                ':endereco'		=> $_POST['endereco'],
+                                ':cpf_cnpj'		=> $_POST['cpf_cnpj'],
+                                ':tipo'			=> $_POST['tipo'],
+                                ':id'			=> $_POST['codigo']
+                            );
                             $query = "UPDATE cadastro.cadastro_cliforn SET
 							nome	= :nome,
 							endereco= :endereco,
@@ -128,10 +128,10 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
                         }
                         //executando SQL de update no banco de dados
                         try {
-                        	$dados = $db->prepare($query);
-                        	$dados->execute($query_params);
+                            $dados = $db->prepare($query);
+                            $dados->execute($query_params);
                         } catch (PDOException $ex) {
-        					die("Erro: " . $ex->getMessage());
+                            die("Erro: " . $ex->getMessage());
                         }
                     }
                     ?>
@@ -201,7 +201,6 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
 							let nome = cliente.getElementsByClassName("nome")[0].innerHTML;
 							let cpf_cnpj = cliente.getElementsByClassName("cpf_cnpj")[0].innerHTML;
 							let endereco = cliente.getElementsByClassName("endereco")[0].innerHTML;
-							console.log(nome);
 							document.getElementById('nome').value = nome;
 							document.getElementById('cpf_cnpj').value = cpf_cnpj;
 							document.getElementById('endereco').value = endereco;
@@ -210,9 +209,9 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
 						}
 						</script>
 						<?php
-                        break;
-                    }
+                    break;
                 }
+            }
         }
             ?>
 		</div>
