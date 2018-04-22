@@ -59,26 +59,7 @@ try {
 		<?php
 		if (isset($_SESSION['logado'])) {
 			if ($_SESSION['logado']) {
-				//Tratar a requisição POST
-				if (isset($_POST['id'])) {
-					switch ($_POST['id']) {
-						case 1:
-						{
-							//montagem do SQL de atualização
-							$sql = "update cadastro.cadastro_empresa set ";
-							$sql .= "razao_social='".$_POST['nome']."',";
-							$sql .= "denominacao_social='".$_POST['denominacao']."',";
-							$sql .= "endereco='".$_POST['end']."',";
-							$sql .= "cpf_cnpj='".$_POST['doc']."' where id=".$_POST['codigo'];
-							//executando SQL de update no banco de dados
-							$n = $db->exec($sql);
-							if ($n == 0) {
-								echo("Erro: ".$db->errorInfo());
-							}
-							break;
-						}
-					}
-				} ?>
+				?>
 				<nav class="navbar navbar-light bg-light">
 					<a class="navbar-brand" href="#">Controle de Fluxo de Caixa</a>
 					<div class="form-inline my-2 my-lg-0">
