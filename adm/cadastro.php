@@ -79,9 +79,7 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
 						</div>
 					</form>
 
-
 					<script language="javascript" type="text/javascript">
-					<!--
 					document.getElementById('nome').disabled = true;
 					document.getElementById('denominacao').disabled = true;
 					document.getElementById('end').disabled = true;
@@ -96,7 +94,6 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
 						document.getElementById('bt_edit').disabled = true;
 						document.getElementById('bt_save').disabled = false;
 					}
-					//-->
 					</script>
 					<?php
                     break;
@@ -181,22 +178,37 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
 							</thead>
 							<tbody>
 								<?php
-                                $sql = "SELECT * FROM cadastro.cadastro_cliforn where tipo = 0";
+                                $sql = "SELECT * FROM cadastro.cadastro_cliforn WHERE tipo = 0 ORDER BY id ASC";
                                 $query = $db->prepare($sql);
                                 $query->execute();
                                 foreach ($query->fetchAll() as $res) {
                                     ?>
-									<tr>
+									<tr id="cliente-<?= $res['id'] ?>">
 										<th scope="row"><?= $res['id'] ?></th>
-										<td><?= $res['nome'] ?></td>
-										<td><?= $res['cpf_cnpj'] ?></td>
-										<td><?= $res['endereco'] ?></td>
-										<td>Editar</td>
+										<td class="nome"><?= $res['nome'] ?></td>
+										<td class="cpf_cnpj"><?= $res['cpf_cnpj'] ?></td>
+										<td class="endereco"><?= $res['endereco'] ?></td>
+										<td><a href="javascript:editarClientes(<?= $res['id'] ?>)">Editar</a></td>
 									</tr>
 								<?php
                                 } ?>
 							</tbody>
 						</table>
+						<script language="javascript" type="text/javascript">
+						function editarClientes(id)
+						{
+							let cliente = document.getElementById("cliente-"+id)
+							let nome = cliente.getElementsByClassName("nome")[0].innerHTML;
+							let cpf_cnpj = cliente.getElementsByClassName("cpf_cnpj")[0].innerHTML;
+							let endereco = cliente.getElementsByClassName("endereco")[0].innerHTML;
+							console.log(nome);
+							document.getElementById('nome').value = nome;
+							document.getElementById('cpf_cnpj').value = cpf_cnpj;
+							document.getElementById('endereco').value = endereco;
+							document.getElementById('codigo').value = id;
+							document.getElementById('id_cliente').innerHTML = "/ editando "+ id;
+						}
+						</script>
 						<?php
                         break;
                     }
