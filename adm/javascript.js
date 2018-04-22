@@ -23,35 +23,35 @@ function ExtraiScript(texto)
 		//Verifica se este e um bloco de script ou include para um arquivo de scripts
 		if (pos_src < ini && pos_src >=0)
 		{//Se encontrou um "src" dentro da tag script, esta e um include de um arquivo script
-		//Marca como sendo o inicio do nome do arquivo para depois do src
-		ini = pos_src + 4;
-		//Procura pelo ponto do nome da extencao do arquivo e marca para depois dele
-		fim = texto.indexOf('.', ini)+4;
-		//Pega o nome do arquivo
+			//Marca como sendo o inicio do nome do arquivo para depois do src
+			ini = pos_src + 4;
+			//Procura pelo ponto do nome da extencao do arquivo e marca para depois dele
+			fim = texto.indexOf('.', ini)+4;
+			//Pega o nome do arquivo
+			codigo = texto.substring(ini,fim);
+			//Elimina do nome do arquivo os caracteres que possam ter sido pegos por engano
+			codigo = codigo.replace("=","").replace(" ","").replace("\"","").replace("\"","").replace("\'","").replace("\'","").replace(">","");
+			// Adiciona o arquivo de script ao objeto que sera adicionado ao documento
+			objScript.src = codigo;
+		}
+		else
+		{//Se nao encontrou um "src" dentro da tag script, esta e um bloco de codigo script
+		// Procura o final do script
+		fim = texto.indexOf('</script>', ini);
+		// Extrai apenas o script
 		codigo = texto.substring(ini,fim);
-		//Elimina do nome do arquivo os caracteres que possam ter sido pegos por engano
-		codigo = codigo.replace("=","").replace(" ","").replace("\"","").replace("\"","").replace("\'","").replace("\'","").replace(">","");
-		// Adiciona o arquivo de script ao objeto que sera adicionado ao documento
-		objScript.src = codigo;
+		// Adiciona o bloco de script ao objeto que sera adicionado ao documento
+		objScript.text = codigo;
 	}
-	else
-	{//Se nao encontrou um "src" dentro da tag script, esta e um bloco de codigo script
-	// Procura o final do script
-	fim = texto.indexOf('</script>', ini);
-	// Extrai apenas o script
-	codigo = texto.substring(ini,fim);
-	// Adiciona o bloco de script ao objeto que sera adicionado ao documento
-	objScript.text = codigo;
-}
 
-//Adiciona o script ao documento
-document.body.appendChild(objScript);
-// Procura a proxima tag de <script
-ini = texto.indexOf('<script', fim);
+	//Adiciona o script ao documento
+	document.body.appendChild(objScript);
+	// Procura a proxima tag de <script
+	ini = texto.indexOf('<script', fim);
 
-//Limpa o objeto de script
-objScript = null;
-}
+	//Limpa o objeto de script
+	objScript = null;
+	}
 }
 function CreateAjax()
 {
