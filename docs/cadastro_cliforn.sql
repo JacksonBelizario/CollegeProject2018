@@ -4,8 +4,8 @@
 -- 
 --  
 
-CREATE TABLE cadastro_cliforn (
-  id integer NOT NULL ,
+CREATE TABLE cadastro.cadastro_cliforn (
+  id serial ,
   nome varchar(200) NOT NULL ,
   endereco varchar(255) NOT NULL ,
   cpf_cnpj varchar(15) NOT NULL ,
