@@ -8,6 +8,7 @@ if (!isset($_SESSION['count'])) {
 }
 //print_r($_SESSION);
 ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 'On');
 $file = $_SERVER["SCRIPT_FILENAME"];
 //echo ("Arquivo: $file <br/>");
 $diretorio = pathinfo($file);
@@ -34,8 +35,12 @@ try {
 	host=elmer.db.elephantsql.com;
 	user=zjmyszer;
 	password=rlYVx3LvH2ahGOXnBN6nEnXfrIAq3ful');
+	/*$db = new PDO('pgsql:dbname=alcion2_pw;
+	host=127.0.0.1;
+	user=alcion2_upw;
+	password=@PW2018&');*/
 } catch (PDOException $e) {
-	echo 'Connection failed: ' . $e->getMessage();
+	die('Connection failed: ' . $e->getMessage());
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -85,6 +90,16 @@ try {
 						case 1:
 						{
 							include("cadastro.php");
+							break;
+						}
+						case 2:
+						{
+							include("lancamentos.php");
+							break;
+						}
+						case 3:
+						{
+							include("relatorios.php");
 							break;
 						}
 					}
