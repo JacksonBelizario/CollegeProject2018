@@ -221,6 +221,16 @@
                 }
             }
         }
-            ?>
+		else
+		{
+		?>
+			<div class="alert alert-info" role="alert">
+			  	<h4 class="alert-heading">Painel de Lançamentos</h4>
+			  	<hr>
+			  	<p class="mb-0">Selecione ao lado o tipo de lançamento desejado.</p>
+			</div>
+		<?php
+		}
+        ?>
 		</div>
 	</div>

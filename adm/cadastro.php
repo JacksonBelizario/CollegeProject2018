@@ -354,6 +354,16 @@ $menu = array(4,"Empresa","Cliente","Fornecedor","Usuário"); ?>
                 }
             }
         }
-            ?>
+		else
+		{
+		?>
+			<div class="alert alert-info" role="alert">
+			  	<h4 class="alert-heading">Painel de Cadastro</h4>
+			  	<hr>
+			  	<p class="mb-0">Selecione ao lado o tipo de cadastro desejado.</p>
+			</div>
+		<?php
+		}
+        ?>
 		</div>
 	</div>
