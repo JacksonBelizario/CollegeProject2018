@@ -25,7 +25,7 @@ if (isset($_POST['usuario'])) {
 		<img class="mb-4" src="./img/login.png" alt="" width="100" height="100">
 		<h1 class="h3 mb-3 font-weight-normal">Login</h1>
 		<label for="inputEmail" class="sr-only">Usuário</label>
-		<input type="text" id="usuario"name="usuario" class="form-control" placeholder="Email" maxlength="20" required autofocus>
+		<input type="text" id="usuario"name="usuario" class="form-control" placeholder="Usuário" maxlength="20" required autofocus>
 		<label for="inputPassword" class="sr-only">Senha</label>
 		<input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
 		<div class="checkbox mb-3">
