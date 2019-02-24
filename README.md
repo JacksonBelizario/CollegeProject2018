@@ -1,7 +1,7 @@
-Trabalho de Programação Web
-UEMS 2018
+College project of web development with PHP
+UEMS 2018 (Universidade Estadua de Mato Grosso do Sul)
 
-Alunos:
+Students:
 Jackson Belizário,
 Douglas Weber,
 Cleiton Lewandowski,
